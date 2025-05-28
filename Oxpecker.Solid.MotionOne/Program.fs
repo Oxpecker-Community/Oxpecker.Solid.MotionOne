@@ -51,12 +51,12 @@ type Generator =
 type MotionEvent =
     inherit CustomEvent
     abstract target: obj with get
-    
+
 [<Interface; AllowNullLiteral>]
 type CustomPointerEvent =
     inherit CustomEvent
     abstract originalEvent: PointerEvent with get
-    
+
 [<Interface; AllowNullLiteral>]
 type ViewEvent =
     inherit CustomEvent
@@ -64,8 +64,10 @@ type ViewEvent =
 
 [<Erase>]
 type OptionKeys = interface end
+
 [<Erase>]
 type AttrKey = interface end
+
 [<Erase>]
 type MotionEvents = interface end
 
@@ -90,8 +92,8 @@ module MotionState =
         | Hover
         | Press
         | Exit
-    type SetActive =
-        delegate of ``type``: Type * isActive: bool -> unit
+
+    type SetActive = delegate of ``type``: Type * isActive: bool -> unit
 
 [<AllowNullLiteral>]
 [<Interface>]
@@ -111,8 +113,14 @@ type MotionState =
 [<Import("Presence", "solid-motionone")>]
 type Presence() =
     interface HtmlContainer
-    [<Erase>] member _.exitBeforeEnter with set(value: bool) = ()
-    [<Erase>] member _.initial with set(value: bool) = ()
+
+    [<Erase>]
+    member _.exitBeforeEnter
+        with set (value: bool) = ()
+
+    [<Erase>]
+    member _.initial
+        with set (value: bool) = ()
 
 /// <summary>
 /// See the solid-motionone docs for usage.
@@ -151,7 +159,7 @@ type Exports =
     /// Object to access MotionState
     /// </returns>
     [<Import("createMotion", "solid-motionone")>]
-    static member createMotion (target: HtmlElement, options: obj, ?presenceState: obj) : MotionState = nativeOnly
+    static member createMotion(target: HtmlElement, options: obj, ?presenceState: obj) : MotionState = nativeOnly
 
 [<Erase; AutoOpen>]
 module Extensions =
@@ -162,52 +170,103 @@ module Extensions =
         [<Erase>]
         [<LanguageInjection(InjectedLanguage.HTML, Prefix = "<", Suffix = ">")>]
         member _.tag
-            
-            with set(_: string) = ()
+
+            with set (_: string) = ()
+
     type OptionKeys with
         [<Erase>]
-        member _.initial' with set(value: obj) = ()
+        member _.initial'
+            with set (value: obj) = ()
+
         [<Erase>]
-        member _.animate' with set(value: obj) = ()
+        member _.animate'
+            with set (value: obj) = ()
+
         [<Erase>]
-        member _.inView' with set(value: obj) = ()
+        member _.inView'
+            with set (value: obj) = ()
+
         [<Erase>]
-        member _.inViewOptions' with set(value: obj) = ()
+        member _.inViewOptions'
+            with set (value: obj) = ()
+
         [<Erase>]
-        member _.hover' with set(value: obj) = ()
+        member _.hover'
+            with set (value: obj) = ()
+
         [<Erase>]
-        member _.press' with set(value: obj) = ()
+        member _.press'
+            with set (value: obj) = ()
+
         [<Erase>]
-        member _.variants' with set(value: obj) = ()
+        member _.variants'
+            with set (value: obj) = ()
+
         [<Erase>]
-        member _.transition' with set(value: obj) = ()
+        member _.transition'
+            with set (value: obj) = ()
+
         [<Erase>]
-        member _.exit' with set(value: obj) = ()
+        member _.exit'
+            with set (value: obj) = ()
+
         [<LanguageInjection(InjectedLanguage.JAVASCRIPT, Prefix = "<div style=", Suffix = " />")>]
-        member this.initial with inline set(value: string) = this.initial' <- emitJsExpr () value
+        member inline this.initial
+            with inline set (value: string) = this.initial' <- emitJsExpr () value
+
         [<LanguageInjection(InjectedLanguage.JAVASCRIPT, Prefix = "<div style=", Suffix = " />")>]
-        member this.animate with inline set(value: string) = this.animate' <- emitJsExpr () value
+        member inline this.animate
+            with inline set (value: string) = this.animate' <- emitJsExpr () value
+
         [<LanguageInjection(InjectedLanguage.JAVASCRIPT, Prefix = "<div style=", Suffix = " />")>]
-        member this.inView with inline set(value: string) = this.inView' <- emitJsExpr () value
+        member inline this.inView
+            with inline set (value: string) = this.inView' <- emitJsExpr () value
+
         [<LanguageInjection(InjectedLanguage.JAVASCRIPT, Prefix = "<div style=", Suffix = " />")>]
-        member this.inViewOptions with inline set(value: string) = this.inViewOptions' <- emitJsExpr () value
+        member inline this.inViewOptions
+            with inline set (value: string) = this.inViewOptions' <- emitJsExpr () value
+
         [<LanguageInjection(InjectedLanguage.JAVASCRIPT, Prefix = "<div style=", Suffix = " />")>]
-        member this.hover with inline set(value: string) = this.hover' <- emitJsExpr () value
+        member inline this.hover
+            with inline set (value: string) = this.hover' <- emitJsExpr () value
+
         [<LanguageInjection(InjectedLanguage.JAVASCRIPT, Prefix = "<div style=", Suffix = " />")>]
-        member this.press with inline set(value: string) = this.press' <- emitJsExpr () value
+        member inline this.press
+            with inline set (value: string) = this.press' <- emitJsExpr () value
+
         [<LanguageInjection(InjectedLanguage.JAVASCRIPT, Prefix = "<div style=", Suffix = " />")>]
-        member this.variants with inline set(value: string) = this.variants' <- emitJsExpr () value
+        member inline this.variants
+            with inline set (value: string) = this.variants' <- emitJsExpr () value
+
         [<LanguageInjection(InjectedLanguage.JAVASCRIPT, Prefix = "<div style=", Suffix = " />")>]
-        member this.transition with inline set(value: string) = this.transition' <- emitJsExpr () value
+        member inline this.transition
+            with inline set (value: string) = this.transition' <- emitJsExpr () value
+
         [<LanguageInjection(InjectedLanguage.JAVASCRIPT, Prefix = "<div style=", Suffix = " />")>]
-        member this.exit with inline set(value: string) = this.exit' <- emitJsExpr () value
+        member inline this.exit
+            with inline set (value: string) = this.exit' <- emitJsExpr () value
 
     type MotionEvents with
-        member _.onMotionStart with set(handler: MotionEvent -> unit) = ()
-        member _.onMotionComplete with set(handler: MotionEvent -> unit) = ()
-        member _.onHoverStart with set(handler: CustomPointerEvent -> unit) = ()
-        member _.onHoverEnd with set(handler: CustomPointerEvent -> unit) = ()
-        member _.onPressStart with set(handler: CustomPointerEvent -> unit) = ()
-        member _.onPressEnd with set(handler: CustomPointerEvent -> unit) = ()
-        member _.onViewEnter with set(handler: ViewEvent -> unit) = ()
-        member _.onViewLeave with set(handler: ViewEvent -> unit) = ()
+        member _.onMotionStart
+            with set (handler: MotionEvent -> unit) = ()
+
+        member _.onMotionComplete
+            with set (handler: MotionEvent -> unit) = ()
+
+        member _.onHoverStart
+            with set (handler: CustomPointerEvent -> unit) = ()
+
+        member _.onHoverEnd
+            with set (handler: CustomPointerEvent -> unit) = ()
+
+        member _.onPressStart
+            with set (handler: CustomPointerEvent -> unit) = ()
+
+        member _.onPressEnd
+            with set (handler: CustomPointerEvent -> unit) = ()
+
+        member _.onViewEnter
+            with set (handler: ViewEvent -> unit) = ()
+
+        member _.onViewLeave
+            with set (handler: ViewEvent -> unit) = ()
