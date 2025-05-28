@@ -20,7 +20,7 @@
         <PackageVersion>0.1.0</PackageVersion>
         <PackageReleaseNotes>Init</PackageReleaseNotes>
         <NpmDependencies>
-            <NpmPackage Name="solid-motionone" Version=">= 1.0.0" />
+            <NpmPackage Name="solid-motionone" Version="gte 1.0.0" />
         </NpmDependencies>
     </PropertyGroup>
 
@@ -31,13 +31,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Fable.Browser.IntersectionObserver" Version="1.0.0" />
+        <PackageReference Include="Fable.Browser.IntersectionObserver" Version="1.0.0" />
         <PackageReference Include="Fable.Core" Version="4.5.0" />
         <PackageReference Include="Fable.Package.SDK" Version="1.3.1">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-      <PackageReference Include="Oxpecker.Solid" Version="0.7.0" />
+        <PackageReference Include="Oxpecker.Solid" Version="0.7.0" />
     </ItemGroup>
 
 </Project>

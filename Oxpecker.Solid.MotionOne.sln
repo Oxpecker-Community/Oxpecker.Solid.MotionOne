@@ -1,6 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Oxpecker.Solid.MotionOne", "Oxpecker.Solid.MotionOne\Oxpecker.Solid.MotionOne.fsproj", "{B8C71E65-4108-412C-BF27-E5F2CD736747}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Oxpecker.Solid.MotionOne", "src\Oxpecker.Solid.MotionOne.fsproj", "{B8C71E65-4108-412C-BF27-E5F2CD736747}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E27CAE0A-4E0D-4C58-AAEC-EC814C38B998}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{26796BD2-5FB8-4324-AB1C-D71386B12B4B}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Sample", "examples\Sample.fsproj", "{5A039CF4-D4AF-4E65-BB10-7DD269C745CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +18,13 @@ Global
 		{B8C71E65-4108-412C-BF27-E5F2CD736747}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8C71E65-4108-412C-BF27-E5F2CD736747}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8C71E65-4108-412C-BF27-E5F2CD736747}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A039CF4-D4AF-4E65-BB10-7DD269C745CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A039CF4-D4AF-4E65-BB10-7DD269C745CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A039CF4-D4AF-4E65-BB10-7DD269C745CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A039CF4-D4AF-4E65-BB10-7DD269C745CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B8C71E65-4108-412C-BF27-E5F2CD736747} = {E27CAE0A-4E0D-4C58-AAEC-EC814C38B998}
+		{5A039CF4-D4AF-4E65-BB10-7DD269C745CC} = {26796BD2-5FB8-4324-AB1C-D71386B12B4B}
 	EndGlobalSection
 EndGlobal
