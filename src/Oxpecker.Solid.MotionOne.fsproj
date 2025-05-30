@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <FablePackageType>library</FablePackageType>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <WarningsAsErrors>3239;0025</WarningsAsErrors>
         <PackageId>Oxpecker.Solid.MotionOne</PackageId>
         <Title>Oxpecker.Solid.MotionOne</Title>
@@ -37,7 +37,7 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Oxpecker.Solid" Version="0.7.0" />
+        <PackageReference Include="Oxpecker.Solid" Version="0.8.0" />
     </ItemGroup>
 
 </Project>

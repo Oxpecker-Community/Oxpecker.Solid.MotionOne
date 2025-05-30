@@ -45,7 +45,7 @@ type DOMRectReadOnly =
 
 [<AllowNullLiteral; Interface>]
 type Generator =
-    abstract next: (unit -> unit) with get
+    abstract next: unit -> unit with get
 
 [<Interface; AllowNullLiteral>]
 type MotionEvent =
@@ -104,11 +104,10 @@ type MotionState =
     abstract member getOptions: (unit -> obj) with get, set
     abstract member getContext: (unit -> MotionStateContext) with get, set
     abstract member setActive: MotionState.SetActive with get, set
-    abstract member mount: (Element -> (unit -> unit)) with get, set
+    abstract member mount: (Element -> unit -> unit) with get, set
     abstract member isMounted: (unit -> bool) with get, set
     abstract member animateUpdates: (unit -> Generator) with get, set
 
-#nowarn 1182
 
 [<Import("Presence", "solid-motionone")>]
 type Presence() =
@@ -116,11 +115,11 @@ type Presence() =
 
     [<Erase>]
     member _.exitBeforeEnter
-        with set (value: bool) = ()
+        with set (_: bool) = ()
 
     [<Erase>]
     member _.initial
-        with set (value: bool) = ()
+        with set (_: bool) = ()
 
 /// <summary>
 /// See the solid-motionone docs for usage.
@@ -135,7 +134,7 @@ type Presence() =
 /// </code></remarks>
 [<Import("Motion", "solid-motionone")>]
 type Motion() =
-    inherit RegularNode()
+    interface RegularNode
     interface OptionKeys
     interface MotionEvents
     interface AttrKey
@@ -176,39 +175,39 @@ module Extensions =
     type OptionKeys with
         [<Erase>]
         member _.initial'
-            with set (value: obj) = ()
+            with set (_: obj) = ()
 
         [<Erase>]
         member _.animate'
-            with set (value: obj) = ()
+            with set (_: obj) = ()
 
         [<Erase>]
         member _.inView'
-            with set (value: obj) = ()
+            with set (_: obj) = ()
 
         [<Erase>]
         member _.inViewOptions'
-            with set (value: obj) = ()
+            with set (_: obj) = ()
 
         [<Erase>]
         member _.hover'
-            with set (value: obj) = ()
+            with set (_: obj) = ()
 
         [<Erase>]
         member _.press'
-            with set (value: obj) = ()
+            with set (_: obj) = ()
 
         [<Erase>]
         member _.variants'
-            with set (value: obj) = ()
+            with set (_: obj) = ()
 
         [<Erase>]
         member _.transition'
-            with set (value: obj) = ()
+            with set (_: obj) = ()
 
         [<Erase>]
         member _.exit'
-            with set (value: obj) = ()
+            with set (_: obj) = ()
 
         [<LanguageInjection(InjectedLanguage.JAVASCRIPT, Prefix = "<div style=", Suffix = " />")>]
         member inline this.initial
